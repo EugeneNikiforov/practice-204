@@ -1,37 +1,47 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 body {
     background-color: antiquewhite;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100px;
+    height: 100vh;
 }
 
 #field {
+    --cell-size: 20vmin;
+    --cell-gap: 2vmin;
     position: relative;
     display: grid;
-    grid-template-columns: repeat(4, 20px);
-    grid-template-rows: repeat(4, 20px);
-    gap: 2px;
-    border-radius: 2px;
+    grid-template-columns: repeat(4, var(--cell-size));
+    grid-template-rows: repeat(4, var(--cell-size));
+    gap: var(--cell-gap);
+    border-radius: 1vmin;
 }
 
 .cell {
     background-color: #2323ff;
-    border-radius: 2px;
+    border-radius: 1vmin;
 }
 
 .tile {
+    --y: 0;
+    --x: 0;
     position: absolute;
-    top: calc(0 * (20px + 2px));
-    left: calc(0 * (20px + 2px));
+    top: calc(var(--y) * (var(--cell-size) + var(--cell-gap)));
+    left: calc(var(--x) * (var(--cell-size) + var(--cell-gap)));
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 20px;
-    height: 20px;
-    border-radius: 2px;
+    width: 20vmin;
+    height: 20vmin;
+    border-radius: 1vmin;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 12px;
+    font-size: 7.5vmin;
     font-weight: 700;
     background-color: #ee6c6c;
     color: #000;
