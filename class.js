@@ -11,10 +11,15 @@ export class Grid {
             );
             
         }
+        this.cellsGroupedByColumn = this.groupCellsByColumn();
     }
     getRandomEmptyCell() {
         const emptyCells = this.cells.filter(cell => cell.isEmpty());
         const randomIndex = Math.floor(Math.random() * emptyCells.length);
         return emptyCells[randomIndex];
+    }
+
+    groupCellsByColumn() {
+        return this.cells.reduce(() => {}, []);
     }
 }
