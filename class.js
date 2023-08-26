@@ -20,6 +20,10 @@ export class Grid {
     }
 
     groupCellsByColumn() {
-        return this.cells.reduce(() => {}, []);
+        return this.cells.reduce((groupedCells, cell) => {
+            groupedCells[cell.x] = groupedCells[cell.x] || [];
+            groupedCells[cell.x][cell.y] = cell;
+            return groupedCells;
+        }, []);
     }
 }
